@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+  <style>
+    #form1 {
+    
+ display : none;
+}
+#signup{
+ margin-bottom: 10px;
+}
+/* kitni hoti likh desktio ki mujhe anhi pta */
+@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+.bodyedititems{
+margin-left: 120px;
+overflow-y: auto;
+}
+
+.button_cont{
+  margin-left: 150px;
+}
+}
+
+
+  </style>
+
+            
+<script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[2];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
+   
+
+
+<script>$( document ).ready( function() {
+  $( "#signup" ).click( function() {
+    $( "#form1" ).toggle( 'slow' );
+  });
+});</script>
+</head>
+<body>
+ 
+  <%-include ../common/navbar.ejs %>
+    
+  <div class="bodyedititems">
+   <div class="col-lg">
+           <div class="sideseller">     
+        
+          
+          <div style="padding-left: 10%;" class="container-fluid"  style='overflow-x:auto'>
+            
+            <div class="row" style='overflow-x:auto'>
+          <table  class="table" id="myTable"> 
+    <input class="form__field" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+    <thead class="header">
+            
+              <th>Username</td>
+              <th>Rating</td>
+              <th>Keywords</td>
+                <th>ASIN %></td>
+                <th>LINK</td>
+                <th>STORE</td>
+                <th>Option</td>
+                <th>Country</td>
+                <th>Amount</td>
+                <th>Amountperday</th>
+                <th>Price</th>
+                <th>OwnPart</th>
+                <th>Condition</th>
+                <th>RefundWithFeedback</th>
+                <th>allowedagenttakeselfpart</th>
+                <th>Refundinclfee</th>
+               
+                <th>Rating</th>
+
+
+
+
+              </thead>
+              <tbody>
+           <% data.forEach((data)=>{ %>
+
+            <tr>
+              <td><%= data.PostedBy %></td>
+
+              <td>
+                <div class="rating">
+                  <%= data.AvgRating%> / 5
+            </div>
+          </td>
+                <td><%= data.keywords %></td>
+
+                <td><%= data.Asin %></td>
+                  <td><%= data.Link %></td>
+                  <td><%= data.Store %></td>
+                  <td><%= data.option %></td>
+                    <td><%= data.Country %></td>
+                    <td><%= data.Amount %></td>
+                    <td><%= data.Amountperday %></td>
+                    <td><%= data.Price %></td>
+                    <td><%= data.OwnPart %></td>
+                    <td><%= data.Condition %></td>
+                      <td><%= data.RefundWithFeedback %></td>
+                      <td><%= data.allowedagenttakeselfpart %></td>
+                      <td><%= data.Refundinclfee %></td>
+                      <td><%= data.ReviewwithPic %></td>
+                      <td><%= data.Reviewwithvideo %></td>
+                      <% if(sess.userType == 'admin' || sess.userType == 'Admin'){ %>
+                    <td><a href="/seller/edit/product/<%= data._id %>"><i class="fas fa-edit"></i></a></td>
+                    <td><a href="/seller/delete/product/<%= data._id %>"><i class="fas fa-trash-alt"></i></a></td>
+                    <% } %>
+                    <!-- <i class="fas fa-trash-alt"></i> -->
+               </tr>
+               <% }) %>
+              </tbody>
+
+          </table>
+        </div>
+      </div>
+        <!-- </div> -->
+      </div>
+    </div>
+</div>
+  <%- include ../common/footer.ejs %>
+   </body>  
+</html>

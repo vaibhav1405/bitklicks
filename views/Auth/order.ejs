@@ -1,0 +1,128 @@
+<html>
+    <head>
+        
+        <%- include ../common/scripts.ejs %>
+     
+       <script>
+         var ProductSelected = new Set();
+        function selectProduct(){
+          console.log("select product called")
+
+            var checkboxes = document.querySelectorAll('#selectPro');
+            for(let i = 0;i<checkboxes.length;i++){
+              if(checkboxes[i].checked == true){
+                  ProductSelected.add(checkboxes[i].value);
+                  console.log(ProductSelected)
+              }
+              else{
+                ProductSelected.delete(checkboxes[i].value);
+
+              }
+            }
+        }
+        function buyProduct(){
+          console.log("buy product called")
+          let dataCheckbox = [];
+          for (let item of ProductSelected.values()) dataCheckbox.push(item);
+         console.log(dataCheckbox);
+          axios.put('/buy/Order/multiselected',{dataCheckbox:dataCheckbox})
+          .then((d)=>{
+            const {data} = d;
+            if(data==='done'){
+              alert("here")
+              window.location.href = '/buy/order/multiselected/form';
+            }
+            else{
+              alert("else")
+
+            }
+          })
+          .catch((err) => { console.log('Axios Error:', err); })
+          // problem axios mai h me bol he rha tha yhi kuch prob hai 
+          // var finalvalue = document.querySelector('#finalvalue');
+          // finalvalue.value = dataCheckbox;
+
+          // document.querySelector('#formselect').submit();
+
+
+          
+            // var checkboxes = document.querySelectorAll('#selectPro');
+            // for(let i = 0;i<checkboxes.length;i++){
+              // if(checkboxes[i].checked == true){
+                  // ProductSelected.add(checkboxes[i].value);
+                  // console.log(ProductSelected)
+              // }
+              // else{
+              //   ProductSelected.delete(checkboxes[i].value);
+
+              // }
+            // }
+        }
+      </script>
+      </head>
+
+    <body">
+      <%- include ../common/navbar.ejs %>
+        
+            <div class="col-lg" style='overflow-x:auto'>
+                <table  class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Select Product</th>  
+                        <th scope="col">Keyword</th>
+                        <th scope="col">asin</th>
+                        <th scope="col">Link</th>
+                        <th scope="col">Store</th>
+                        <th scope="col">Option</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Amount / Day</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">OwnPart</th>
+                        <th scope="col">Condition</th>
+                        <th scope="col">RefundWithFeedback</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">allowedagenttakeselfpart</th>
+                        <th scope="col">Refundinclfee</th>
+                        <th scope="col">Quick Links </th>
+                        
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach((data)=>{ %>
+                        <tr>
+                          <td> <input type="checkbox" value="<%= data._id %>" id="selectPro" onclick="selectProduct()"> </td>  
+                          <td><%= data.keywords %></td>
+                            <td><%= data.Asin %></td>
+                            <td><%= data.Store %></td>
+                            <td><%= data.option %></td>
+                              <td><%= data.Country %></td>
+                              <td><%= data.Amount %></td>
+                              <td><%= data.Amountperday %></td>
+                              <td><%= data.Price %></td>
+                              <td><%= data.OwnPart %></td>
+                              <td><%= data.Condition %></td>
+                                <td><%= data.RefundWithFeedback %></td>
+                                <td><%= data.allowedagenttakeselfpart %></td>
+                                <td><%= data.Refundinclfee %></td>
+                                <td><a  href="/buy/Order/<%= data._id %> ">Buy Now</a></td>
+                            
+                           
+                       
+                      </tr>     
+                      <% }) %>
+                    </tbody>
+                  </table>
+                  <!-- <form method="POST" action ="/buy/Order/multiselected" id="formselect"> -->
+                    <!-- <input type="text" name="finalvalue" id="finalvalue"> -->
+                  <button class="example_f" onclick="buyProduct()"><span>Buy Selected Product</span></button>
+                    <!-- <input type="hidden " value=""> -->
+                <!-- </form>  -->
+                </div>
+                  </div>
+                </div>
+     </body>
+</html>
+
+

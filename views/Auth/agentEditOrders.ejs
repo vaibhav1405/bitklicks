@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+</head>
+<body>
+ 
+  
+    <%-include ../common/navbar.ejs %>
+                <div style="padding-top:3%;" class="col-lg">
+                  
+                    <form action="/Agent/Add/Orders" method="POST" >
+                      
+           <div class="mb-4">
+             <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+               Item Name
+             </label>
+             <input class="form__field"   name="ItemName" type="text" placeholder="ITEM NAME" autofocus>
+           </div>
+           <div class="mb-6">
+             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+               ASIN
+             </label>
+             <input class="form__field"  autocomplete="off" name="ASIN" type="text" placeholder="ASIN">
+           </div>
+           <div class="mb-6">
+             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+               STORE
+             </label>
+             <input class="form__field"   name="STORE" type="text" placeholder="STORE">
+           </div>
+           <div class="mb-6">
+             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+               LINK
+             </label>
+             <input class="form__field"   name="LINK" type="text" placeholder="ORDERID">
+           </div>
+      
+           <div class="button_cont" align="center">
+             <button type="submit" class="example_f"  rel="nofollow">
+             <span>Search</span></a>
+             </button>
+             </div>
+                        <!-- <center>
+   
+                       ITEM NAME:        <input autocomplete="off" type="text" placeholder="ITEM NAME"><br/>
+                       ASIN:    <input autocomplete="off" type="text" placeholder="ASIN"><br/>
+                       STORE:  <input autocomplete="off" type="text" placeholder="STORE"><br/>
+                       LINK: <input autocomplete="off" type="text" placeholder="LINK"><br/>
+                       <button type="submit" value="Search">Search</button>
+                   </center> -->
+                    </form>
+                   </div>
+
+
+        </div>
+      
+      </div>
+  </div>
+  
+
+  
+
+  
+
+  <%- include ../common/footer.ejs %>
+   </body>  
+</html>

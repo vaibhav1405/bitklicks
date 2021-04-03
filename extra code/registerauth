@@ -1,0 +1,73 @@
+// code test
+router.get('/codetest',(req,res)=>{
+
+  tempuser.findOne({Username:"Balsram2123"},(err,done)=>{
+    if(err){
+
+    }
+    else{
+      console.log(done)
+      // res.send('user already exit');
+    }
+  })
+})
+// yaha pr vapas kaam krna hai authentication ka 
+router.post('/register' , (req , res) =>{
+  // tempuser.findOne({Username:req.body.Username}) && tempuser.findOne({email:req.body.email})
+ /* tempuser.findOne({Username:req.body.Username,email:req.body.email},(err,done)=>{
+    if(done){
+      console.log(done);
+    }
+    else{
+      const newtempuser = new tempuser({Username, First_name, Last_name, email, we_chat, wassup, facebook , password } = req.body);
+      bcrypt.genSalt(10 , (err , salt) =>{
+        bcrypt.hash(newtempuser.password , salt ,(err , hash) =>{
+          if(err) throw err;
+          newtempuser.password = hash;
+          newtempuser.save();
+          tempuser.create(newtempuser,(err,success)=>{if(err){ throw err} else{console.log(success)}});
+          // router.render('./Auth/register');
+          res.render('./Admin/review');
+        })
+      })
+     }
+  }) */
+    // .then(tuser =>{
+    // if(tuser){
+    //   res.status(400).status.json({ Username : "Username already exist"});
+    // }
+   
+  // })
+})
+// working code hai ye 
+/*router.post('/register' , (req,res,) =>{
+    tempuser.findOne({Username : req.body.Username})
+    .then(tuser =>{
+      if (tuser){
+        console.log('here')
+   res.status(400).json({Username : "username already exist"});
+      }
+      else{
+        console.log('here2')
+
+        const newtempuser = new tempuser({Username, First_name, Last_name, email, we_chat, wassup, facebook , password } = req.body);
+        bcrypt.genSalt(10, (err , salt) =>{
+          bcrypt.hash(newtempuser.password , salt , (err, hash)=>{
+            if(err) throw err;
+            newtempuser.password = hash;
+            newtempuser.save()
+            .then(user =>  tempuser.create({Username:Username,First_name:First_name,Last_name:Last_name,wassup:wassup,we_chat:we_chat,facebook:facebook,password:password,email:email},(err,result)=>{
+              if (err) throw err
+              console.log(result);
+             res.render('./Admin/review');
+          }))
+        })
+       
+      
+    })
+      }
+    })
+ 
+
+    
+}); */

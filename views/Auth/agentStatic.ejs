@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <%- include ../common/scripts %>
+        
+       
+    </head>
+
+    <body>
+       <%- include ../common/navbar %>
+        <div class="col-lg" style='overflow-x:auto;'>
+<table class="table">
+  <thead>
+  <th>Orders Review   </th>   
+  <th>Orders Feedback </th>     
+  <th>Orders Rating   </th>   
+  <th>Orders Free     </th>
+  <th>Sum             </th>
+</thead>
+<tbody style="height: auto;">
+  <tr>
+<td> <%= data.reviewCount %></td>  
+<td> <%= data.feedbackCount %></td>
+<td> <%= data.ratingCount %></td>  
+<td>0</td>
+<td><%= data.reviewCount + data.feedbackCount + data.ratingCount %></td>
+</tr>
+</tbody>
+<thead>
+    <th>Reviews remaining  </th>  
+    <th>Feedback remaining </th>   
+    <th>Rating remaining   </th>
+    
+    <th>Sum</td>      </th>
+</thead>
+<tbody style="height: auto;">
+  <tr>
+    <td> <%= data.productCount - data.reviewCount %></td>
+    
+    <td> <%= data.productCount - data.feedbackCount %> </td>
+    <td> <%= data.productCount - data.ratingCount %></td>
+    <td><%= (data.productCount - data.reviewCount) + (data.productCount-data.feedbackCount) + (data.productCount-data.ratingCount) %></td>
+      
+  </tr>
+</tbody>
+
+    
+</table>
+</div>
+</div>
+</div>
+<%- include ../common/footer.ejs %>
+    </body>
+    </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+</head>
+<body>
+ 
+  
+    <%-include ../common/navbar.ejs %>
+  <div style="padding-top: 100px;" class= "container"">
+    
+      <p class="topic">Dashboard Agnet </p>
+      
+     
+        <div class="row">
+        <div class="col-lg-2">
+          <div class="button_cont" >
+            <a href="/Agent/Items">
+            <button style="height: 80px; width: 150px;"class="example_f"  target="_blank" rel="nofollow">
+            <span>Items</span></button>
+            </a>
+            </div>
+            
+            <div class="button_cont" >
+            <a href="/Agent/Edit/Orders">
+              <button style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+              <span>Edit orders</span></button>
+            </a>  
+            </div>
+              <div class="button_cont" >
+                <a href="/Agent/Static">
+                <button style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+                <span>Static</span></button>
+              </a>  
+              </div>
+        
+          <div class="button_cont">
+            <a href="/Agent/Add/Orders">
+            <button style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+            <span>Add orders</span></button>
+          </a> 
+          </div>
+            <div class="button_cont" >
+              <a href="/Agent/Messenger">
+              <button style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+              <span>Messenger</span></button>
+            </a>
+              </div>
+              <div class="button_cont" >
+                <a href="/Agent/Profile">
+                <button onclick="" style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+                <span>Profile</span></button>
+              </a>
+                </div>
+        </div>
+                <div class="col">
+                 clicked data render here
+                </div>
+        </div>
+      
+    
+  </div>
+  
+
+  
+
+  
+
+  <%- include ../common/footer.ejs %>
+   </body>  
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+</head>
+<body>
+    <%- include ../common/navbar.ejs %>
+    <div class="col-lg">
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="/seller/add/product"  method="POST"  id="form1">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+        Keyword
+      </label>
+      <input class="form__field" name="keywords" type="text" placeholder="Keywords" size="30" maxlength="64">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          ASIN
+        </label>
+      <input class="form__field" name="Asin" type="text" placeholder="ASIN"  size="30" maxlength="10" >
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          LINK
+        </label>
+      <input class="form__field" name="Link" type="text" placeholder="LINK"  size="30" maxlength="325" >
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          STORE
+        </label>
+      <input class="form__field" name="Store" type="text" placeholder="STORE"  size="30" maxlength="32">
+      </div>
+
+      <select name="option">
+        <option>
+          Review
+        </option>
+        <option>
+          Feedback
+        </option>
+        <option>
+          Rating
+        </option>
+        <option>
+          Free Shipping
+        </option>
+      </select>
+      <select name="Country">
+        <option>DE</option>
+        <option>USA</option>
+        <option>UK</option>
+        <option>RS</option>
+
+      </select>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          Amount
+        </label>
+      <input class="form__field" name="Amount" type="text" placeholder="AMOUNT"  size="30" maxlength="32">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          Amount per day
+        </label>
+      <input class="form__field" name="Amountperday" type="text" placeholder="AMOUNT/PER DAY"  size="30" maxlength="32">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          Price
+        </label>
+      <input class="form__field" name="Price" type="text" placeholder="PRICE"  size="30" maxlength="32">
+      </div> 
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          Own Part
+        </label>
+      <input  class="form__field" name="OwnPart" type="text" placeholder="OWN PART"  size="30" maxlength="32">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          Condition
+        </label>
+      <input class="form__field" name="Condition" type="text" placeholder="Conditions  size="30" maxlength="32">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          Refund with Feedback
+        </label>
+      <input class="form__field" name="RefundWithFeedback" type="text" placeholder="% Refund"  size="30" maxlength="32">
+      </div>
+      
+      It`s allowed, that agent take self part<br><input name="allowedagenttakeselfpart" type="checkbox" placeholder="% Refund"  size="30" maxlength="32">
+     
+                 
+      <button class="example_f" type="submit" value="Save" name="signup"><span>Save</span></button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <%- include ../common/scripts %>
+            
+        <script>
+            function myFunction() {
+              // Declare variables
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("myTable");
+              tr = table.getElementsByTagName("tr");
+            
+              // Loop through all table rows, and hide those who don't match the search query
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }
+              }
+            }
+            </script>
+                
+    </head>
+    <body>
+        <%- include ../common/navbar %>
+        <div class="col-lg">
+<table  id="myTable">
+    <input class="form__field" type="text" id="myInput" onkeyup="myFunction()" value="Search item here" onfocus="this.value=''">
+
+    <thead class="header">
+    
+        <th>Product Posted By</th>
+        <th>Product ASIN</th>
+        <th>Product Price</th>
+        <th>Product Quantity</th>
+        <th>Product Address</th>
+        <th>Product Zip</th>
+        <th>Product Delivered</th>
+
+
+    </thead>
+    <tbody>
+    <% Orders.forEach((d)=>{ %>
+        <tr>
+            <td><%= d.productPostedby %></td>
+            <td><%= d.userAsin %></td>
+            <td><%= d.userPrice %></td>
+            <td><%= d.userQuantity %></td>
+            <td><%= d.userAddress %></td>
+            <td><%= d.userZip %></td>
+        <td>
+                    <% if(d.productDelivered == true && d.productCancelled == false ){ %>   
+                        Product Is Delivered
+                     <% }  if(d.productDelivered==false && d.productCancelled == false ) { %>
+                            <form method="POST" action="/Seller/Orders/Agent/<%= d._id %>">
+                            <input class="example_f" type="submit" value="Delivered">
+                           </form>
+                           <% } else if(d.productCancelled == true && d.productDelivered==false){ %>
+                            Product Cancelled
+                            <% } %>
+        </td> 
+        
+        <td>
+            <% if(d.productCancelled == true && d.productDelivered == false ){ %>   
+                Product Cancelled
+                            <% } else if(d.productDelivered == false && d.productCancelled == false) { %>
+                                <form method="POST" action="/Seller/Orders/Agent/<%= d._id %>/cancel">
+                                    <input class="example_f" type="submit" value="Cancel Now">
+                                   </form>
+                        <%  } else if(d.productDelivered ==true && d.productCancelled==false){ %>
+                        
+                            Product Delivered
+                            <% } %>
+            </td>
+
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+<%- include ../common/footer %>
+</body>
+</html>

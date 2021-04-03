@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+  <script>
+    function sanitizeInput(){
+      // replace(/[^a-zA-Z0-9-.@ ]/g,'')
+     let Username =  document.getElementsByClassName('Username')[0].value;
+    document.getElementsByClassName('Username')[0].value = Username.replace(/[^a-zA-Z0-9-.@ ]/g,'');
+  
+    let Firstname =  document.getElementsByClassName('Firstname')[0].value;
+    document.getElementsByClassName('Firstname')[0].value = Firstname.replace(/[^a-zA-Z0-9-.@ ]/g,'');
+  
+  
+  let Lastname =  document.getElementsByClassName('Lastname')[0].value;
+    document.getElementsByClassName('Lastname')[0].value = Lastname.replace(/[^a-zA-Z0-9-.@ ]/g,'');
+  
+  }
+
+//   function password_check() {
+//   pass = document.getElementById("password").value;
+//   console.log(pass);
+//   regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+//   if (regex.exec(pass) == null) {
+//     alert('invalid password!')
+//   }
+//   else {
+//     console.log("valid");
+//   }
+// }
+  
+    </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div  class="col-lg">
+        <section  class="login flex justify-center pt-24">
+       <p style="color:#1abc9c;  font-family: 'Rubik', sans-serif; text-align: centre; font-size: 48px; font-weight: 400; margin: 2; text-align: center;" class="animate__animated animate__bounce animate__infinite	infinite"> Cheer's !<br />
+      Bitklicks<br />
+        Welcome's You!!!!</p>
+      </section>
+      </div>
+      <div class="col-lg">
+<section  class="login flex justify-center pt-24">
+    <div class="w-full max-w-2xl">
+        <form action="/register" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          
+       
+          
+          
+
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+              Username
+            </label>
+            <input class="form__field Username" id="name" required name="Username" value="" onkeyup="sanitizeInput()" type="text" placeholder="Enter your name" autofocus>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+              First name
+            </label>
+            <input class="form__field Firstname" onkeyup="sanitizeInput()" id="phone" required name="First_name" value="" type="text" placeholder="Enter your phone number">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+              Last name
+            </label>
+            <input class="form__field Lastname" onkeyup="sanitizeInput()" id="email" name="Last_name" required type="name" value="" placeholder="Enter your email">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              E-mail
+            </label>
+            <input class="form__field" id="password" required name="email" type="email" value="" placeholder="">
+          </div> 
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              we-chat ID
+            </label>
+            <input class="form__field" id="password" required name="we_chat" type="string" value="" placeholder="">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              Whatsapp Number
+            </label>
+            <input class="form__field"  required name="wassup"  type="tel"  value="" placeholder="">
+          </div>
+          <div class="mb-6">
+            <label  class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              Facebook
+            </label>
+            <input class="form__field" id="password" required name="facebook" type="url"  pattern="https://.*" placeholder="">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="string">
+              Role:
+            </label>
+          
+            <select name="Role" id="Role">
+              <!-- <option value="Admin">Admin</option> -->
+              <option value="Seller">Seller</option>
+              <option value="Agent">Agent</option>
+              
+            </select>
+            
+            
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="string">
+              Language:
+            </label>
+            <select name="Language" id="Language">
+              <option value="English">English</option>
+              <option value="German">German</option>
+              <option value="Chinies">Chinies</option>
+              
+            </select>
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              Password:
+            </label>
+            <input class="form__field" id="password"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required name="password" type="password" placeholder="">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              Confirm Password
+            </label>
+            <input class="form__field" id="password" required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="cpassword" type="password" placeholder="">
+          </div>
+          <div class="button_cont" align="center">
+            <button type="submit" class="example_f"  rel="nofollow">
+            <span>Register</span></a>
+            </button>
+            </div>
+            <br/>
+          </button>
+           
+            <a class="inline-block align-baseline font-bold text-sm" href="/">
+              Already have account ?
+            </a>
+          </div>
+        </form>
+      </div>
+</section>
+</div></div></div>
+<%- include ../common/footer.ejs %>
+</body>
+<html>

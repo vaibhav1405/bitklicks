@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+</head>
+<body>
+ 
+  
+    <%-include ../common/navbar.ejs %>
+    <div style="padding-bottom: 60px;" class="col-lg">
+    
+                <div class="container">
+                  <div class="row">
+                    <div  class= "container"">  
+                         <div class="row">
+                         
+                    <div class="col-lg-3">
+                    <div class="button" >
+                        <a href="/Agent/Messenger/wp">
+                        <button onclick="" style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+                        <span>Whatsapp Message</span></button>
+                      </a>
+                        </div>
+                    
+                        <div class="button_cont" >
+                            <a href="/Agent/Messenger/tg">
+                            <button onclick="" style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+                            <span>Telegram Message</span></button>
+                          </a>
+                            </div>
+                
+                <!-- </div> -->
+              </div>
+
+                <div class="col-lg">
+
+                  <form method="POST" action="/Agent/Messenger/wp">
+                   
+                    <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="ItemName">
+                        Item Name
+                      </label>
+                      <input class="form__field" id="ItemName" autocomplete="off" name="ItemName" type="text" placeholder="ITEM NAME" autofocus>
+                    </div>
+                    <div class="mb-6">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="LINK">
+                        LINK
+                      </label>
+                      <input class="form__field" id="LINK" autocomplete="off" name="LINK" type="text" placeholder="LINK">
+                    </div>
+                    <div class="mb-6">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="STORE">
+                        STORE
+                      </label>
+                      <input class="form__field" id="STORE" autocomplete="off" name="STORE" type="text" placeholder="STORE">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="STORE">
+                          Sells Per Day
+                        </label>
+                        <input class="form__field" id="STORE" autocomplete="off" name="Sells" type="text" placeholder="STORE">
+                      </div>
+                      <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="STORE">
+                          Options
+                        </label>
+                        <input class="form__field" id="STORE" autocomplete="off" name="Options" type="text" placeholder="STORE">
+                      </div>
+                        
+                      <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="STORE">
+                          Item Price
+                        </label>
+                        <input class="form__field" id="STORE" autocomplete="off" name="ItemPrice" type="text" placeholder="STORE">
+                      </div>
+                      <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="STORE">
+                          Seller Own Part
+                        </label>
+                        <input class="form__field" id="STORE" autocomplete="off" name="SellerOwnPart" type="text" placeholder="STORE">
+                      </div>
+
+                      <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="STORE">
+                          Exc / Inc Fees
+                        </label>
+                        <input class="form__field" id="STORE" autocomplete="off" name="excincfees" type="text" placeholder="STORE">
+                      </div>
+                      <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="STORE">
+                          Conditions
+                        </label>
+                        <input class="form__field" id="STORE" autocomplete="off" name="Conditions" type="text" placeholder="STORE">
+                      </div>
+                      <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="STORE">
+                          Own text
+                        </label>
+                        <input class="form__field" id="STORE" autocomplete="off" name="Owntext" type="text" placeholder="STORE">
+                      </div>
+
+                    <input autocomplete="off" type="hidden" name="pagename" value="review">
+                    <div class="button_cont" align="center">
+                      <button type="submit" class="example_f"  rel="nofollow">
+                      <span>Create</span>
+                      </button>
+                      </div>
+                                 <!-- <center>
+            
+                                ITEM NAME:        <input autocomplete="off" type="text" placeholder="ITEM NAME"><br/>
+                                ASIN:    <input autocomplete="off" type="text" placeholder="ASIN"><br/>
+                                STORE:  <input autocomplete="off" type="text" placeholder="STORE"><br/>
+                                LINK: <input autocomplete="off" type="text" placeholder="LINK"><br/>
+                                <button type="submit" value="Search">Search</button>
+                            </center> -->
+                             </form>
+                             </div>
+                </div>
+        </div>
+      
+    
+  </div>
+  </div>
+  
+
+  
+
+  
+</div>
+</div>
+</div>
+  <%- include ../common/footer.ejs %>
+   </body>  
+</html>

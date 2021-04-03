@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+  <script>
+     function myfunction(){    
+      document.getElementById("displaytable").style.display = "none";   
+    }
+  </script>
+</head>
+<body>
+ 
+  
+    <%-include ../common/navbar.ejs %>
+  
+
+        <div class="col-lg"  style="overflow-x:auto">
+        <table class="table" ">
+            <thead>
+              <tr>
+                <th scope="col">Rating</th>
+             
+                <th scope="col">Keyword</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">we_chat</th>
+                <th scope="col">Whattsapp</th>
+                <th scope="col">facebook</th>
+                <th scope="col">request action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <% data.forEach((data)=>{ %>
+                <tr>
+                    <td><%= data.keywords %></td>
+                    <td><%= data.Asin %></td>
+                    <td><%= data.Link %></td>
+                    <td><%= data.Store %></td>
+                    <td><%= data.option %></td>
+                      <td><%= data.Country %></td>
+                      <td><%= data.Amount %></td>
+                      <td><%= data.Amountperday %></td>
+                      <td><%= data.Price %></td>
+                      <td><%= data.OwnPart %></td>
+                      <td><%= data.Condition %></td>
+                        <td><%= data.RefundWithFeedback %></td>
+                        <td><%= data.allowedagenttakeselfpart %></td>
+                        <td><%= data.Refundinclfee %></td>
+                       
+                    
+                   
+               
+              </tr>     
+              <% }) %>
+            </tbody>
+          </table>
+          </div>
+        </div>
+        
+          </div>
+  
+
+  
+
+  
+
+          <%- include ../common/footer.ejs %>
+   </body>  
+</html>

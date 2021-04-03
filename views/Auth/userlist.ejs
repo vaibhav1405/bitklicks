@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <%- include ../common/scripts %>
+        <%- include ../common/navbar %>
+
+       
+    </head>
+
+    <body>
+        <div class="col-lg" style='overflow-x:auto; '>
+
+        <table  cellpadding=5 border=1 cellspacing=0 class="table table-dark ">
+    <thead>
+<th>Email</th>
+<th>Name</th>
+<th>Username</th>
+<th>Verified By Email</th>
+<th>Verify By Admin</th>
+
+    </thead>
+    <tbody>
+        <% data.forEach((d)=>{ %>
+        <tr>
+                <td><%= d.email %></td>
+                <td><%= d.First_name %></td>
+                <td><%= d.Username %></td>
+                <td><%= d.isverified?"Yes":"No" %></td>
+                <% if(d.isverifiedbyadmin){ %>
+                
+                <td>Yes</td>
+                <% } else { %>
+                <td><a href="/verify/email/admin/<%= d.email %>">Verify Now</a></td>
+
+                    <% } %>
+
+        </tr>
+<%  }) %>
+    </tbody>
+</table>
+</div>
+</div>
+
+</div>
+<%- include ../common/footer.ejs %>
+</body>
+</html>

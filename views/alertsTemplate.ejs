@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ./common/scripts.ejs %>
+  
+  <script>
+    setTimeout(()=>{
+        window.location.href  = "/";
+    },6000)
+    function ClickButton(){
+    window.history.back();
+    }
+    </script>
+</head>
+<body class="">
+
+  <div class="col-lg">
+    <div class="alert <%= alertclass %>" role="alert">
+        <!-- <h4 style="text-align: center;" class="alert-heading">Well done!</h4> -->
+        <p style="text-align: center;"><%= alertMessage %></p>
+        <hr>
+        <p style="text-align: center;" class="mb-0"><a href="/">GO TO HOMEPAGE</a></p>
+        <p style="text-align: center;" class="mb-0">after 5s Window will redirect to homepage</p>
+        <button onclick="ClickButton()" >GO BACK</button>
+
+      </div>
+    </div>
+</div>
+</div>  
+  <%- include ./common/footer.ejs %>
+
+  
+
+</div>
+   </body>  
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+</head>
+<body class="">
+ 
+  <%- include ../common/navbar.ejs %>
+  <div style="padding-top:7%;" class="col-lg">
+  <form action="/updateprofile" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" enctype="multipart/form-data">
+  <div  class="container">
+    <div class="row">
+      
+      <div style="padding-right: 3%;" class="col-lg">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+              Username
+            </label>
+            <input class="form__field Username" id="name" value="<%= sess.Username %>" name="Username" value="" onkeyup="sanitizeInput()" type="text" placeholder="Enter your name" autofocus>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+              First name
+            </label>
+            <input class="form__field Firstname" onkeyup="sanitizeInput()" id="phone" value="<%= sess.First_name %>"  name="First_name" value="" type="text" placeholder="Enter your phone number">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+              Last name
+            </label>
+            <input class="form__field Lastname" onkeyup="sanitizeInput()" id="email" value="<%= sess.Last_name %>" name="Last_name"  type="name" value="" placeholder="Enter your email">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              E-mail
+            </label>
+            <input class="form__field" id="password"  name="email" value="<%= sess.email %>" type="email" value="" placeholder="">
+          </div> 
+          
+      </div>
+      <div class="col-lg">
+        <div class="mb-6">
+          
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              Upload Profile Image
+            </label>
+            <input class="form__field" id="password"  name="profileimage" type="file" >
+          </div>
+<input autocomplete="off" type="hidden" value="<%= sess.userType %>" name="Role"> 
+          <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                  we-chat ID
+                </label>
+                <input class="form__field" id="password"  value="<%= sess.we_chat %>" name="we_chat" type="string" value="" placeholder="">
+              </div>
+              <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                  Whatsapp Number
+                </label>
+                <input class="form__field"   name="wassup"  type="tel"  value="<%= sess.wassup %>" placeholder="">
+              </div>
+            <label  class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              Facebook
+            </label>
+            <input class="form__field" id="password"  name="facebook" type="url" value="<%= sess.facebook %>" pattern="https://.*" placeholder="">
+          </div>
+          <div class="button_cont" align="center">
+            <button type="submit" id="signup" class="example_f"  rel="nofollow">
+            <span>Update</span></a>
+            </div>
+    </div>
+    </div>
+  </form>
+</div></div></div>
+
+
+
+  
+
+</div>
+   </body>  
+</html>

@@ -1,0 +1,17 @@
+<form action="/buy/order/<%= product._id %>" method="POST">
+    <input type="text" value="<%= sess.First_name %>">
+    <input type="text" value="<%= sess.Last_name %>">
+    <input type="text" value="<%= sess.email %>">
+    <input type="text" value="<%= product.Asin %>">
+    <input type="number" value="<%= product.PostedBy %>">
+    <input type="number" value="<%= product.Amount %>">
+    <input type="number" Placeholder ="Quantity" name="quantity">
+    <input type="text" Placeholder ="Address" name="address">
+    <input type="text" Placeholder ="ZIP" name="zip">
+     
+    <input type="submit" value="ORDER NOW">
+    
+
+
+
+</form>

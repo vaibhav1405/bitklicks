@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+  <style>
+    #form1 {
+    
+ display : none;
+}
+#signup{
+ margin-bottom: 10px;
+}
+
+  </style>
+<script>$( document ).ready( function() {
+  $( "#signup" ).click( function() {
+    $( "#form1" ).toggle( 'slow' );
+  });
+});</script>
+</head>
+<body>
+ 
+  
+    <%-include ../common/navbar.ejs %>
+  <div style="padding-top: 100px;" class= "container"">
+    
+      <p class="topic">Dashboard Agnet </p>
+      
+     
+        <div class="row">
+          <%- include ../Auth/rnavbar.ejs %>
+                    
+        </div>
+           <div class="sideseller">     
+        <!-- <div class="button_cont" >
+          <a href="/Agent/Profile">
+          <button onclick="" style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+          <span>Add Items</span></button>
+        </a>
+        </div> -->
+        <!-- <div class="row"> -->
+          <br/>
+          <br/>
+          <br/>
+          <div class="container"  style='overflow-x:auto'>
+            <div class="row" style='overflow-x:auto'>
+          <table cellpadding=5 border=1 cellspacing=0 class="table table-dark "> 
+            <thead>
+         
+              <th>Keywords</td>
+                <th>ASIN %></td>
+                <th>LINK</td>
+                <th>STORE</td>
+                <th>Option</td>
+                <th>Country</td>
+                <th>Amount</td>
+                <th>Amountperday</th>
+                <th>Price</th>
+                <th>OwnPart</th>
+                <th>Condition</th>
+                <th>RefundWithFeedback</th>
+                <th>allowedagenttakeselfpart</th>
+                <th>Refundinclfee</th>
+                <th>ReviewwithPic</th>
+                <th>Reviewwithvideo</th>
+
+
+
+              </thead>
+              <tbody>
+           <% data.forEach((data)=>{ %>
+            <tr>
+                <td><%= data.keywords %></td>
+                  <td><%= data.Asin %></td>
+                  <td><%= data.Link %></td>
+                  <td><%= data.Store %></td>
+                  <td><%= data.option %></td>
+                    <td><%= data.Country %></td>
+                    <td><%= data.Amount %></td>
+                    <td><%= data.Amountperday %></td>
+                    <td><%= data.Price %></td>
+                    <td><%= data.OwnPart %></td>
+                    <td><%= data.Condition %></td>
+                    <td><a href="/seller/edit/product/<%= data._id %>"><i class="fas fa-edit"></i></a></td>
+                    <td><a href="/seller/delete/product/<%= data._id %>"><i class="fas fa-trash-alt"></i></a></td>
+                   
+                    <td><%= data.RefundWithFeedback %></td>
+                      <td><%= data.allowedagenttakeselfpart %></td>
+                      <td><%= data.Refundinclfee %></td>
+                      <td><%= data.ReviewwithPic %></td>
+                      <td><%= data.Reviewwithvideo %></td>
+                     
+                    <!-- <td><a href="/seller/edit/product/<%= data._id %>"><i class="fas fa-edit"></i></a></td>
+                    <td><a href="/seller/delete/product/<%= data._id %>"><i class="fas fa-trash-alt"></i></a></td>
+                    -->
+                      <!-- <i class="fas fa-trash-alt"></i> -->
+
+                    </tr>
+           <% }) %>
+              </tbody>
+
+          </table>
+          </div>
+          </div>
+        <!-- </div> -->
+      </div>
+</div>
+      <div class="addform">
+
+        <div id="signupform">
+          <button id="signup">Add Product!</button>
+              <form action="/seller/add/product"  method="POST"  id="form1">
+                  <input name="keywords" type="text" placeholder="Keywords" size="30" maxlength="64">
+                  <input name="Asin" type="text" placeholder="ASIN"  size="30" maxlength="10" >
+                  <input name="Link" type="text" placeholder="LINK"  size="30" maxlength="325" >
+                  <input name="Store" type="text" placeholder="STORE"  size="30" maxlength="32">
+                  <select name="option">
+                    <option>
+                      Review
+                    </option>
+                    <option>
+                      Feedback
+                    </option>
+                    <option>
+                      Rating
+                    </option>
+                    <option>
+                      Free Shipping
+                    </option>
+                  </select>
+                  <select name="Country">
+                    <option>DE</option>
+                    <option>USA</option>
+                    <option>UK</option>
+                    <option>RS</option>
+
+                  </select>
+                  <input name="Amount" type="text" placeholder="AMOUNT"  size="30" maxlength="32">
+                  <input name="Amountperday" type="text" placeholder="AMOUNT/PER DAY"  size="30" maxlength="32">
+                  <input name="Price" type="text" placeholder="PRICE"  size="30" maxlength="32">
+                  <input name="OwnPart" type="text" placeholder="OWN PART"  size="30" maxlength="32">
+                  <input name="Condition" type="text" placeholder="Conditions  size="30" maxlength="32">
+                  <input name="RefundWithFeedback" type="text" placeholder="% Refund"  size="30" maxlength="32">
+                  It`s allowed, that agent take self part<input name="allowedagenttakeselfpart" type="checkbox" placeholder="% Refund"  size="30" maxlength="32">
+                 
+                 
+
+
+                  <input class="btn" type="submit" value="Save" name="signup">
+              </form>
+          </div>
+          
+      </div>
+                  
+                </div>
+                
+        </div>
+        
+      
+    
+  </div>
+  
+
+  
+
+  
+
+  <%- include ../common/footer.ejs %>
+   </body>  
+</html>

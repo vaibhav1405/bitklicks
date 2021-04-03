@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+</head>
+<body>
+ 
+  
+    <%-include ../common/navbar.ejs %>
+  <div style="padding-top: 100px;" class= "container"">
+    
+      <p class="topic">Dashboard Agnet </p>
+      
+     
+        <div class="row">
+        <div class="col-lg-2">
+          <div class="button_cont" >
+            <a href="/Agent/Items">
+            <button style="height: 80px; width: 150px;"class="example_f"  target="_blank" rel="nofollow">
+            <span>Items</span></button>
+            </a>
+            </div>
+            
+            <div class="button_cont" >
+            <a href="/Agent/Edit/Orders">
+              <button style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+              <span>Edit orders</span></button>
+            </a>  
+            </div>
+              <div class="button_cont" >
+                <a href="/Agent/Static">
+                <button style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+                <span>Static</span></button>
+              </a>  
+              </div>
+        
+          <div class="button_cont">
+            <a href="/Agent/Add/Orders">
+            <button style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+            <span>Add orders</span></button>
+          </a> 
+          </div>
+            <div class="button_cont" >
+              <a href="/Agent/Messenger">
+              <button style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+              <span>Messenger</span></button>
+            </a>
+              </div>
+              <div class="button_cont" >
+                <a href="/Agent/Profile">
+                <button onclick="" style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+                <span>Profile</span></button>
+              </a>
+                </div>
+        </div>
+                <div class="col-lg-10">
+                  <div class="row">
+                    <div class="button" >
+                        <a href="/Agent/ReviewItems">
+                        <button onclick="" style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+                        <span>Review Items</span></button>
+                      </a>
+                        </div>
+                    
+                        <div class="button_cont" >
+                            <a href="/Agent/RankingItems">
+                            <button onclick="" style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+                            <span>Ranking Items</span></button>
+                          </a>
+                            </div>
+                            <div class="button_cont" >
+                                <a href="/Agent/FeedbackItems">
+                                <button onclick="" style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+                                <span>Feedback Items</span></button>
+                              </a>
+                                </div>
+
+                                <div class="button_cont" >
+                                    <a href="/Agent/FreeShippingItems">
+                                    <button onclick="" style="height: 80px; width: 150px  ;" class="example_f" href="add-website-here" target="_blank" rel="nofollow">
+                                    <span>Free Shipping Items</span></button>
+                                  </a>
+                                    </div>
+                <!-- </div> -->
+              </div>
+
+                <!-- <div class="col"> -->
+
+                  <form method="POST" action="/Agent/Items/Items">
+                   
+                    <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="ItemName">
+                        Item Name
+                      </label>
+                      <input class="form__field" id="ItemName" autocomplete="off" name="ItemName" type="text" placeholder="ITEM NAME" autofocus>
+                    </div>
+                    <div class="mb-6">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="ASIN">
+                        ASIN
+                      </label>
+                      <input class="form__field" id="ASIN" autocomplete="off" name="ASIN" type="text" placeholder="ASIN">
+                    </div>
+                    <div class="mb-6">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="STORE">
+                        STORE
+                      </label>
+                      <input class="form__field" id="STORE" autocomplete="off" name="STORE" type="text" placeholder="STORE">
+                    </div>
+                    <div class="mb-6">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="Country">
+                        Country
+                      </label>
+                      <select name="Country">
+                        <option>INDIA</option>
+                        <option>USA</option>
+                        <option>RUSSIA</option>
+
+                      </select>
+                    </div>
+                    <div class="mb-6">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="Promotion">
+                        Promotion
+                      </label>
+                      <select name="Promotion">
+                        <option>Yes</option>
+                        <option>No</option>
+                        
+
+                      </select>
+                    </div>
+                    <div class="mb-6">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="BRAND">
+                        BRAND
+                      </label>
+                      <input class="form__field" id="BRAND" autocomplete="off" name="BRAND" type="text" placeholder="STORE">
+                    </div>
+                    <input autocomplete="off" type="hidden" name="pagename" value="review"
+                    <div class="button_cont" align="center">
+                      <button type="submit" class="example_f"  rel="nofollow">
+                      <span>Search</span>
+                      </button>
+                      </div>
+                                 <!-- <center>
+            
+                                ITEM NAME:        <input autocomplete="off" type="text" placeholder="ITEM NAME"><br/>
+                                ASIN:    <input autocomplete="off" type="text" placeholder="ASIN"><br/>
+                                STORE:  <input autocomplete="off" type="text" placeholder="STORE"><br/>
+                                LINK: <input autocomplete="off" type="text" placeholder="LINK"><br/>
+                                <button type="submit" value="Search">Search</button>
+                            </center> -->
+                             </form>
+                </div>
+        </div>
+      
+    
+  </div>
+  
+
+  
+
+  
+
+  <%- include ../common/footer.ejs %>
+   </body>  
+</html>

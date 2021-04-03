@@ -1,0 +1,113 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2">
+<div  class="sidebar-container " id="divShowHide">
+    <div style="font-weight: 500; font-size: x-large;" class="sidebar-logo">
+    Bitklicks - <%= sess.userType %>
+    </div>
+    <ul class="sidebar-navigation">
+      <li class="header">Navigation</li>
+      <% if(sess.userType == 'admin' || sess.userType == 'Admin'){ %>
+      <li>
+        <a href="/admin/dashboard">
+          <i class="fa fa-address-card" aria-hidden="true"></i> Request's 
+        </a>
+      </li>
+      <% } %>
+      <li>
+        <a href="/Seller/EditItems">
+          <i class="fa fa-briefcase" aria-hidden="true"></i> Dashboard</a>
+        </a>
+      </li> 
+      <li class="header">Another Menu</li>
+      <% if(sess.userType == 'agent' || sess.userType == 'Agent'){ %>
+      <li>
+        <a href="/Agent/Messenger">
+          <i class="fa fa-share-square" aria-hidden="true"></i> Social Post's
+        </a>
+      </li>
+      <% } %>
+    
+      <li>
+        <% if(sess.userType == 'admin' || sess.userType == 'Admin' || sess.userType == 'Agent' || sess.userType == 'agent') {%>
+        <a href="/sellermess">
+          <% } else {%>
+            <a href="/mess">
+            <% } %>
+
+         <i class="fa fa-comments" aria-hidden="true"></i>Message   
+        </a>
+      </li>
+      <% if(sess.userType == 'seller' || sess.userType == 'Seller'){ %>
+      <li>
+        <a href="/Agent/Edit/Orders">
+          <i class="fa fa-edit" aria-hidden="true"></i> Edit Order's
+        </a>
+      </li>
+      <% } else{ %>
+      <li>  
+        <a href="/Seller/Orders/Agent">
+          <i class="fa fa-edit" aria-hidden="true"></i> Edit Order's
+        </a>
+      </li>
+      <% } %>
+      <% if(sess.userType == 'admin' || sess.userType == 'Admin' || sess.userType == 'Agent' || sess.userType == 'agent') {%>
+        <li> 
+        <a href="/addproduct">
+          <i class="fa fa-plus" aria-hidden="true"></i> Add Product
+        </a>
+      </li>
+      <% } %>
+      <% if(sess.userType == 'seller' || sess.userType == 'Seller'){ %>
+        <li>
+          <a href="/Product_feedback">
+            <i class="fa fa-chart-bar" aria-hidden="true"></i> Opinion's
+          </a>
+        </li>
+        <% } %>
+        <% if(sess.userType == 'seller' || sess.userType == 'Seller'|| sess.userType == 'agent' || sess.userType == 'Agent'){ %>
+          <li>
+            <a href="/download">
+              <i class="fa fa-download" aria-hidden="true"></i> Download Product list
+            </a>
+          </li>
+          <% } %>
+      <% if( sess.userType == 'admin' || sess.userType == 'Admin'){ %>
+      <li>
+        <a href="/Agent/Static">
+          <i class="fa fa-chart-bar" aria-hidden="true"></i> Statistic's
+        </a>
+      </li>
+      <% } %>
+        <li>
+            <a href="/Agent/Profile">
+             <i class="fa fa-user" aria-hidden="true"></i>Profile
+            </a>
+          </li>
+          <% if( sess.userType == 'admin' || sess.userType == 'Admin'){ %>
+            <li>
+              <a href="/backup">
+                <i class="fa fa-undo" aria-hidden="true"></i> Backup Data
+              </a>
+            </li>
+            <% } %>
+          <% if(sess){ %>
+          <li>
+        <a href="/logout">
+          <i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout
+        </a>
+      </li>
+      <% } else { %>
+        <li>
+          <a href="/">
+            <i class="fa fa-sign-in-alt" aria-hidden="true"></i> LogIn
+          </a>
+        </li>
+        <%	} %>
+    </ul>
+  </div>
+</div>
+<div class="sticky" style=" padding-bottom: 40px; height: 30px;" class="contianer" id="navbar">
+  <p><button style="  outline: none; position: absolute; top: 10px; right: 10px;" type="button"  id="btnShowHide"><i  class="fa fa-bars fa-2x" aria-hidden="true"></i></button></p>
+  </div>  
+  

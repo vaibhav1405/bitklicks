@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+  <script>
+    function sanitizeInput(){
+      // replace(/[^a-zA-Z0-9-.@ ]/g,'')
+     let Username =  document.getElementsByClassName('Username')[0].value;
+    document.getElementsByClassName('Username')[0].value = Username.replace(/[^a-zA-Z0-9-.@ ]/g,'');
+  
+    let Firstname =  document.getElementsByClassName('Firstname')[0].value;
+    document.getElementsByClassName('Firstname')[0].value = Firstname.replace(/[^a-zA-Z0-9-.@ ]/g,'');
+  
+  
+  let Lastname =  document.getElementsByClassName('Lastname')[0].value;
+    document.getElementsByClassName('Lastname')[0].value = Lastname.replace(/[^a-zA-Z0-9-.@ ]/g,'');
+  
+  }
+
+//   function password_check() {
+//   pass = document.getElementById("password").value;
+//   console.log(pass);
+//   regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+//   if (regex.exec(pass) == null) {
+//     alert('invalid password!')
+//   }
+//   else {
+//     console.log("valid");
+//   }
+// }
+  
+    </script>
+</head>
+<body>
+  <%-include ../common/navbar.ejs %>
+
+<section  class="login flex justify-center pt-24">
+    <div class="w-full max-w-xs">
+        <form action="/register" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          
+       
+          <span class="text-red-500 text-sm"></span>
+          
+
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+              Username
+            </label>
+            <input class="form__field Username" id="name" required name="Username" value="" onkeyup="sanitizeInput()" type="text" placeholder="Enter your name" autofocus>
+          </div>
+         
+        </form>
+      </div>
+</section>
+<%- include ../common/footer.ejs %>
+</body>
+<html>

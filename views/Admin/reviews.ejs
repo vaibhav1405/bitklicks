@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <%- include ../common/scripts %>
+        %>
+       
+    </head>
+
+    <body>
+        
+        <div class="col-lg" style='overflow-x:auto'>
+        <table class="table">
+    <thead>
+<th>Email</th>
+<th>Item</th>
+<th>Review</th>
+
+    </thead>
+    <tbody>
+        <% data.forEach((d)=>{ %>
+        <tr>
+                <td><%= d.email %></td>
+                <td><%= d.item_id %></td>
+                <td><%= d.description %></td>
+        </tr>
+<%  }) %>
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+<%- include ../common/footer.ejs %>
+</body>
+</html>

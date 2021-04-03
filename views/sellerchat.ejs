@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <%- include ./common/scripts.ejs %>
+        <script>
+            function myFunction() {
+              // Declare variables
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("myTable");
+              tr = table.getElementsByTagName("tr");
+            
+              // Loop through all table rows, and hide those who don't match the search query
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }
+              }
+            }
+            </script>
+    </head>
+<body>
+    <%- include ./common/navbar%>
+    <div class="col-lg">
+
+<table class="table" style="height: auto;" id="myTable">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+    <thead class="header">
+        <th>INITIATED FROM</th>
+        <th>INITIATED TO</th>
+        <th>QUICK LINK </th>
+</thead>
+
+
+    <% data.forEach((d)=>{  %>
+    <tr>
+    <td><%= d.user %> </td>
+    <td><%= d.Seller %> </td>
+    <td><a href="/join/<%= d.roomId %>/<%= d.user %>">JOIN ROOM</a></td>
+
+</tr>
+
+<% }) %>
+    </table>
+    <div>
+        <p>Admin Usernames : Balram  &emsp; Admin Usernames : Vaibhav</p>
+        
+        </div>
+        </div>                <center>
+        <button><a href="/mess">New Chat</a></button>
+    </center>
+    </div>
+</body>
+    </html>

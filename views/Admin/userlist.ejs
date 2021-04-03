@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <%- include ../common/scripts %>
+        <%- include ../common/navbar %>
+       
+    
+            <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+    
+    </head>
+
+    <body>
+        <div class="col-lg" style='overflow-x:auto'>
+
+        <table class="table" id="myTable">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+            <thead class="header">
+<th>Email</th>
+<th>Name</th>
+<th>Username</th>
+<th>Verified By Email</th>
+<th>Verify By Admin</th>
+
+    </thead>
+    <tbody>
+        <% data.forEach((d)=>{ %>
+        <tr>
+                <td><%= d.email %></td>
+                <td><%= d.First_name %></td>
+                <td><%= d.Username %></td>
+                <td><%= d.isverified?"Yes":"No" %></td>
+                <% if(d.isverifiedbyadmin){ %>
+                
+                <td>Yes</td>
+                <% } else { %>
+                <td><a href="/verify/email/admin/<%= d.email %>">Verify Now</a></td>
+
+                    <% } %>
+
+        </tr>
+<%  }) %>
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+<%- include ../common/footer.ejs %>
+</body>
+</html>

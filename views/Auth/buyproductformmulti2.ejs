@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <%- include ../common/scripts %>
+    
+        
+    </head>
+    <script>
+        function sameAddress(){
+                var address = document.querySelectorAll('#address').values;
+                // document.querySelectorAll('#address')
+                for(let i=0;i<address.length;i++){
+                    document.querySelectorAll('#address').values = address;
+                }
+        }
+    // var product = document.querySelector('.product-price');
+    // product.readOnly = true;
+    </script>
+
+<body>
+<!--Section: Block Content-->
+
+
+       <div class="pt-4 wish-list">
+  
+            
+  
+            <div class="row mb-4">
+              
+              <div class="col-lg">
+                <div class="container">
+                  <div class="d-flex justify-content-between col-lg">
+                    <form>
+                      <h1>YOUR COMMON DETAILS</h1><br />&emsp;&emsp;&emsp;&emsp;
+                  <input type="text" disabled value="<%= sess.First_name %>" name="userfirstname">
+                  <input type="text" disabled value="<%= sess.Last_name %>" name="userlastname">
+                  <input type="text" disabled value="<%= sess.email %>" name="useremail">
+              </div>
+                    <div class="col-lg"> 
+                      <h5><%= data.Asin %></h5>
+                    <% data.forEach((data)=>{ %> 
+    <input readonly type="text" value="<%= data.Asin %>" name="userAsin">&emsp;&emsp;
+    <input  type="text" readonly class="product-price" value="<%= data.Price %>" name="userPrice">&emsp;&emsp;
+    <input type="number"  placeholder="Product Quantity" name="userQuantity" min="0">&emsp;&emsp;
+    <input type="textarea"  placeholder="Product Delivery Address" id="address" name="userAddress">&emsp;&emsp;
+    <input type="text"  placeholder="ZipCode" name="userZip"><br/>
+    <input type="hidden" name="PostedBy" value="<%= data.PostedBy %>">
+    <input type="hidden" name="PostedByemail" value="<%= data.PostedByemail %>">
+
+                    </div>
+                  
+                  <div class="d-flex justify-content-between align-items-center">
+                    
+                    <p class="mb-0"><span><strong id="summary"><%= data.Price %></strong></span></p class="mb-0">
+                  </div>
+                  <% }) %>
+                  <button class="example_f" type="submit" ><span>Order Now</span></button>
+                </form>
+                </div>
+              </div>
+            </div>
+            <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the purchase, adding
+              items to your cart does not mean booking them.</p>
+  
+          </div>
+        </div>
+   
+  
+    </body>
+  
+        </html>

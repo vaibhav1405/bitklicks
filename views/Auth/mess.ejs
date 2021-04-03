@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../common/scripts.ejs %>
+</head>
+<body class="">
+  <div style="background-image: url(../public/images/bg.jpg)">
+  <%- include ../common/navbar.ejs %>
+  
+  <div class="col-lg">
+    <div style="padding-top: 50px;" class="col-lg d-flex justify-content-center">
+            
+        <img style=" max-width: 300px; height: 300px;" class="img-fluid" src="/images/1041916.svg">
+
+<form action="/mess" method="POST">
+    <input type="hidden" name="from" value="<%= sess.email %>" id="">
+    <input class="form__field" type="text" placeholder="Username" name="to" value="Send message to" onfocus="this.value=''" id="">
+    <input class="example_f" type="submit" value="Login">
+
+</form>
+</div>
+<p style="font-size: larger; font-weight: 600; font-family: 'Times New Roman', Times, serif;">
+    To message Admin fill these username in Field<br /> Vaibhav <br /> or <br /> Balram  
+</p>
+</div>
+</div>
+<%- include ../common/footer
+%>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+
+<form action="/mess" method="POST">
+    <input type="hidden" name="from" value="<%= sess.email %>" id="">
+    <input type="text" placeholder="Username" name="to" value="" id="">
+    <input type="submit" value="Login">
+
+</form> -->
