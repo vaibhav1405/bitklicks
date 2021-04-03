@@ -4,6 +4,7 @@
     </head>
     <body>
         <%- include ../common/navbar.ejs %>
+        <div class="col-lg">
 <script>
     function sameAddress(){
             var address = document.querySelectorAll('#address').values;
@@ -20,26 +21,30 @@
 <form method="POST" action="/buy/product/form/multi" > 
     <div class="row">
         <h1>YOUR COMMON DETAILS</h1><br />&emsp;&emsp;&emsp;&emsp;
-    <input type="text" disabled value="<%= sess.First_name %>" name="userfirstname">
-    <input type="text" disabled value="<%= sess.Last_name %>" name="userlastname">
-    <input type="text" disabled value="<%= sess.email %>" name="useremail">
+    <input style="font-weight: 600;" type="text" disabled value="<%= sess.First_name %>" autofocus name="userfirstname">
+    <input style="font-weight: 600;" type="text" disabled value="<%= sess.Last_name %>" name="userlastname">
+    <input style="font-weight: 600;" type="text" disabled value="<%= sess.email %>" name="useremail">
 </div>
 
     <% let i = 1; data.forEach((data)=>{  ;%>
             <h2>Product <%= i %></h2>
 <div class="row">
-    <input readonly type="text" value="<%= data.Asin %>" name="userAsin">&emsp;&emsp;
-    <input  type="text" readonly class="product-price" value="<%= data.Price %>" name="userPrice">&emsp;&emsp;
-    <input type="number"  placeholder="Product Quantity" name="userQuantity" min="0">&emsp;&emsp;
-    <input type="textarea"  placeholder="Product Delivery Address" id="address" name="userAddress">&emsp;&emsp;
-    <input type="text"  placeholder="ZipCode" name="userZip"><br/>
-    <input type="hidden" name="PostedBy" value="<%= data.PostedBy %>">
-    <input type="hidden" name="PostedByemail" value="<%= data.PostedByemail %>">
-
+    <div class="col-lg">
+    <label  style="font-weight: 600;">Asin<input style="font-weight: 600;" class="form__field" readonly type="text" value="<%= data.Asin %>" name="userAsin">&emsp;&emsp;</label>
+    <label  style="font-weight: 600;">Price<input style="font-weight: 600;" class="form__field" type="text" readonly  class="product-price" value="<%= data.Price %>" name="userPrice">&emsp;&emsp;</label>
+    <label  style="font-weight: 600;">Quantity<input style="font-weight: 600;" class="form__field" type="number" placeholder="Product Quantity" name="userQuantity" min="0">&emsp;&emsp;</label>
+</div>
+<div class="col-lg">
+   <input style="font-weight: 600;" class="form__field" type="textarea" value="Address" onfocus="this.value=''"  placeholder="Product Delivery Address" id="address" name="userAddress">&emsp;&emsp;
+    <input style="font-weight: 600;" class="form__field" type="text" value="Zipcode" onfocus="this.value=''" placeholder="ZipCode" name="userZip"><br/>
+    <input style="font-weight: 600;" class="form__field" type="hidden" name="PostedBy" value="<%= data.PostedBy %>">
+    <input style="font-weight: 600;" class="form__field" type="hidden" name="PostedByemail" value="<%= data.PostedByemail %>">
+</div>
 </div>
 <% i++ }) %>
 
-<marquee>ONLY COD IS AVAILABLE</marquee>
+<p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the purchase, adding
+    items to your cart does not mean booking them.</p>
 <button class="example_f" type="submit" ><span>Order Now</span></button>
 
 
@@ -50,6 +55,7 @@
 
 
 </form>
-<<%- include ../common/footer.ejs %>
+</div>
+<%- include ../common/footer.ejs %>
 </body>
 </html>

@@ -29,11 +29,11 @@
           .then((d)=>{
             const {data} = d;
             if(data==='done'){
-              alert("here")
+              
               window.location.href = '/buy/order/multiselected/form';
             }
             else{
-              alert("else")
+              
 
             }
           })
@@ -84,7 +84,7 @@
                         <th scope="col">Price</th>
                         <th scope="col">allowedagenttakeselfpart</th>
                         <th scope="col">Refundinclfee</th>
-                        <th scope="col">Quick Links </th>
+                 
                         
 
                       </tr>
@@ -106,7 +106,7 @@
                                 <td><%= data.RefundWithFeedback %></td>
                                 <td><%= data.allowedagenttakeselfpart %></td>
                                 <td><%= data.Refundinclfee %></td>
-                                <td><a  href="/buy/Order/<%= data._id %> ">Buy Now</a></td>
+                             
                             
                            
                        
